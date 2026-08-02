@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WebZech — Webentwicklung &amp; Local SEO in Niederbayern | Aidenbach, Passau, Deggendorf</title>
+<meta name="description" content="WebZech entwickelt moderne, schnelle Websites und betreibt Local SEO für Unternehmen in Aidenbach, Vilshofen, Passau, Deggendorf und Landshut. Kostenloses Beratungsgespräch anfordern.">
+<meta property="og:title" content="WebZech — Webentwicklung & Local SEO in Niederbayern">
+<meta property="og:description" content="Moderne Websites, die verkaufen. Local SEO, die gefunden wird. WebZech ist die Digitalagentur für Niederbayern.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "WebZech",
+  "image": "",
+  "description": "Webentwicklung und Local SEO Agentur in Aidenbach, Niederbayern.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Aidenbach",
+    "addressRegion": "Niederbayern",
+    "addressCountry": "DE"
+  },
+  "areaServed": ["Aidenbach","Vilshofen an der Donau","Passau","Deggendorf","Landshut","Niederbayern"],
+  "priceRange": "€€"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Wie lange dauert die Erstellung einer neuen Website?","acceptedAnswer":{"@type":"Answer","text":"Je nach Umfang zwischen zwei und sechs Wochen, von der ersten Analyse bis zum Launch."}},
+    {"@type":"Question","name":"Übernimmt WebZech auch die Suchmaschinenoptimierung?","acceptedAnswer":{"@type":"Answer","text":"Ja, jede Website wird technisch für SEO vorbereitet, optional betreuen wir auch laufendes Local SEO."}},
+    {"@type":"Question","name":"Arbeitet WebZech auch mit Kunden außerhalb von Niederbayern?","acceptedAnswer":{"@type":"Answer","text":"Unser Schwerpunkt liegt in Niederbayern, wir betreuen aber zunehmend auch Kunden in München, Regensburg und deutschlandweit."}},
+    {"@type":"Question","name":"Was kostet eine professionelle Website?","acceptedAnswer":{"@type":"Answer","text":"Das hängt vom Umfang ab. Im kostenlosen Beratungsgespräch erstellen wir ein transparentes, unverbindliches Angebot."}}
+  ]
+}
+</script>
+<style>
+:root{
+  --ink:#0B1E3D;
+  --ink-2:#132A52;
+  --ink-soft:#24406e;
+  --paper:#FFFFFF;
+  --mist:#F4F7FB;
+  --line:#E2E8F2;
+  --cyan:#17B8C4;
+  --cyan-dark:#0E8E98;
+  --cta:#FF6B35;
+  --cta-dark:#E4551F;
+  --text:#101828;
+  --text-muted:#5B6B85;
+  --radius:14px;
+  --maxw:1180px;
+  --font-display:'Poppins',sans-serif;
+  --font-body:'Inter',sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+}
+body{
+  margin:0;
+  font-family:var(--font-body);
+  color:var(--text);
+  background:var(--paper);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:var(--font-display); color:var(--ink); margin:0 0 .5em; line-height:1.15; font-weight:700;}
+p{margin:0 0 1em; color:var(--text-muted)}
+a{color:inherit; text-decoration:none}
+img,svg{max-width:100%; display:block}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
+:focus-visible{outline:3px solid var(--cyan); outline-offset:3px; border-radius:4px;}
+
+/* ===== Grid backdrop (blueprint motif) ===== */
+.blueprint{
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* ===== Header ===== */
+header.site{
+  position:sticky; top:0; z-index:60;
+  background:rgba(255,255,255,.88);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav{display:flex; align-items:center; justify-content:space-between; padding:16px 24px; max-width:var(--maxw); margin:0 auto;}
+.logo{display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-weight:800; font-size:1.25rem; color:var(--ink); letter-spacing:-.02em;}
+.logo .dot{width:10px; height:10px; border-radius:50%; background:var(--cta);}
+.navlinks{display:flex; gap:28px; list-style:none; margin:0; padding:0;}
+.navlinks a{font-size:.94rem; font-weight:500; color:var(--ink-2); position:relative; padding:4px 0;}
+.navlinks a::after{content:'';position:absolute; left:0; bottom:0; width:0; height:2px; background:var(--cyan); transition:width .25s ease;}
+.navlinks a:hover::after{width:100%}
+.nav-cta{display:flex; align-items:center; gap:14px;}
+.menu-btn{display:none; background:none; border:none; cursor:pointer; padding:8px;}
+.menu-btn svg{width:26px; height:26px;}
+
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  padding:13px 24px; border-radius:999px; font-weight:600; font-size:.95rem;
+  border:2px solid transparent; cursor:pointer; transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+  white-space:nowrap;
+}
+.btn-primary{background:var(--cta); color:#fff; box-shadow:0 8px 20px -8px rgba(255,107,53,.6);}
+.btn-primary:hover{background:var(--cta-dark); transform:translateY(-2px);}
+.btn-outline{background:transparent; color:var(--ink); border-color:var(--ink);}
+.btn-outline:hover{background:var(--ink); color:#fff;}
+.btn-ghost-light{background:rgba(255,255,255,.08); color:#fff; border-color:rgba(255,255,255,.35);}
+.btn-ghost-light:hover{background:rgba(255,255,255,.18);}
+.btn-sm{padding:9px 16px; font-size:.85rem;}
+
+/* ===== Hero ===== */
+.hero{
+  background:linear-gradient(180deg, var(--ink) 0%, var(--ink-2) 100%);
+  color:#fff; position:relative; overflow:hidden;
+  padding:96px 0 90px;
+}
+.hero::before{
+  content:''; position:absolute; inset:0;
+  background-image: linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+  background-size:56px 56px;
+  mask-image:radial-gradient(ellipse at 30% 20%, black 10%, transparent 70%);
+}
+.hero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:center; position:relative;}
+.eyebrow{
+  display:inline-flex; align-items:center; gap:8px; font-size:.8rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--cyan); background:rgba(23,184,196,.12); border:1px solid rgba(23,184,196,.35); padding:6px 14px; border-radius:999px; margin-bottom:22px;
+}
+.hero h1{color:#fff; font-size:clamp(2.2rem, 4vw, 3.4rem); letter-spacing:-.02em; max-width:15ch;}
+.hero h1 em{font-style:normal; color:var(--cyan);}
+.hero p.lead{color:rgba(255,255,255,.78); font-size:1.12rem; max-width:46ch; margin-bottom:34px;}
+.hero-ctas{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:38px;}
+.hero-trustline{display:flex; gap:22px; flex-wrap:wrap; color:rgba(255,255,255,.65); font-size:.85rem;}
+.hero-trustline span{display:flex; align-items:center; gap:7px;}
+.hero-trustline svg{width:16px; height:16px; color:var(--cyan); flex:none;}
+
+/* Network map visual */
+.map-card{
+  background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.12); border-radius:20px; padding:22px;
+  backdrop-filter:blur(6px);
+}
+.map-card .label{font-size:.78rem; color:rgba(255,255,255,.55); text-transform:uppercase; letter-spacing:.08em; margin-bottom:14px; font-weight:600;}
+.node{cursor:default;}
+.node circle.pulse{animation:pulse 2.6s ease-in-out infinite;}
+.node.main circle.pulse{animation-delay:0s;}
+.node:nth-child(2) circle.pulse{animation-delay:.4s;}
+.node:nth-child(3) circle.pulse{animation-delay:.8s;}
+.node:nth-child(4) circle.pulse{animation-delay:1.2s;}
+.node:nth-child(5) circle.pulse{animation-delay:1.6s;}
+@keyframes pulse{
+  0%{opacity:.5; r:5;}
+  50%{opacity:0; r:16;}
+  100%{opacity:0; r:16;}
+}
+.map-line{stroke:rgba(23,184,196,.45); stroke-width:1.4; stroke-dasharray:4 4;}
+.map-label{font-family:var(--font-body); font-size:11px; fill:rgba(255,255,255,.75); font-weight:600;}
+
+/* ===== Sections generic ===== */
+section{padding:88px 0;}
+.section-head{max-width:640px; margin:0 auto 52px; text-align:center;}
+.section-head .eyebrow{background:rgba(23,184,196,.1); color:var(--cyan-dark); border-color:rgba(23,184,196,.3);}
+.section-head h2{font-size:clamp(1.7rem, 3vw, 2.4rem); letter-spacing:-.01em;}
+.section-head p{font-size:1.05rem;}
+
+/* ===== Trust section ===== */
+.trust{background:var(--mist);}
+.trust-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:28px;}
+.trust-card{background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:28px; transition:transform .2s ease, box-shadow .2s ease;}
+.trust-card:hover{transform:translateY(-4px); box-shadow:0 20px 40px -24px rgba(11,30,61,.25);}
+.trust-icon{width:44px; height:44px; border-radius:12px; background:linear-gradient(135deg, var(--cyan), var(--cyan-dark)); display:flex; align-items:center; justify-content:center; margin-bottom:16px;}
+.trust-icon svg{width:22px; height:22px; color:#fff;}
+.trust-card h3{font-size:1.05rem; margin-bottom:6px;}
+.trust-card p{font-size:.92rem; margin:0;}
+
+/* ===== Services ===== */
+.services-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:24px;}
+.service-card{
+  border:1px solid var(--line); border-radius:var(--radius); padding:30px; background:#fff;
+  transition:border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+  display:flex; flex-direction:column;
+}
+.service-card:hover{border-color:var(--cyan); transform:translateY(-4px); box-shadow:0 24px 44px -28px rgba(11,30,61,.28);}
+.service-num{font-family:var(--font-display); font-weight:700; font-size:.78rem; color:var(--cta); letter-spacing:.06em; margin-bottom:14px;}
+.service-card h3{font-size:1.18rem; margin-bottom:8px;}
+.service-card p{font-size:.93rem; flex:1;}
+.service-link{display:inline-flex; align-items:center; gap:6px; font-weight:600; font-size:.88rem; color:var(--ink-2); margin-top:14px;}
+.service-link svg{width:15px; height:15px; transition:transform .2s ease;}
+.service-card:hover .service-link svg{transform:translateX(3px);}
+
+/* ===== Process ===== */
+.process{background:var(--ink); color:#fff; position:relative; overflow:hidden;}
+.process .section-head h2{color:#fff;}
+.process .section-head p{color:rgba(255,255,255,.65);}
+.process .section-head .eyebrow{background:rgba(23,184,196,.15); color:var(--cyan); border-color:rgba(23,184,196,.4);}
+.timeline{display:grid; grid-template-columns:repeat(6, 1fr); gap:18px; position:relative;}
+.timeline::before{content:''; position:absolute; top:22px; left:0; right:0; height:1px; background:rgba(255,255,255,.15);}
+.step{position:relative; padding-top:52px;}
+.step .num{
+  position:absolute; top:0; left:0; width:44px; height:44px; border-radius:50%;
+  background:var(--ink-2); border:2px solid var(--cyan); color:var(--cyan); font-family:var(--font-display); font-weight:700;
+  display:flex; align-items:center; justify-content:center; font-size:.95rem;
+}
+.step h3{color:#fff; font-size:1rem; margin-bottom:6px;}
+.step p{color:rgba(255,255,255,.6); font-size:.85rem; margin:0;}
+
+/* ===== Portfolio ===== */
+.portfolio-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+.pf-card{border-radius:var(--radius); overflow:hidden; border:1px solid var(--line); background:#fff;}
+.pf-thumb{aspect-ratio:4/3; background:linear-gradient(135deg, var(--ink-2), var(--ink)); position:relative; display:flex; align-items:flex-end; padding:20px;}
+.pf-thumb::after{content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px); background-size:24px 24px;}
+.pf-tag{position:relative; z-index:1; color:#fff; font-size:.75rem; font-weight:600; background:rgba(23,184,196,.25); border:1px solid rgba(23,184,196,.5); padding:5px 12px; border-radius:999px;}
+.pf-body{padding:20px;}
+.pf-body h3{font-size:1.02rem; margin-bottom:4px;}
+.pf-body p{font-size:.88rem; margin:0;}
+
+/* ===== Testimonials ===== */
+.testimonials{background:var(--mist);}
+.t-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+.t-card{background:#fff; border-radius:var(--radius); border:1px solid var(--line); padding:26px;}
+.t-stars{color:var(--cta); font-size:.9rem; margin-bottom:12px; letter-spacing:2px;}
+.t-quote{font-size:.95rem; color:var(--text); margin-bottom:18px;}
+.t-person{display:flex; align-items:center; gap:12px;}
+.t-avatar{width:38px; height:38px; border-radius:50%; background:linear-gradient(135deg, var(--cyan), var(--ink-2)); flex:none;}
+.t-name{font-weight:600; font-size:.88rem; color:var(--ink);}
+.t-role{font-size:.78rem; color:var(--text-muted);}
+
+/* ===== FAQ ===== */
+.faq-list{max-width:760px; margin:0 auto; display:flex; flex-direction:column; gap:12px;}
+.faq-item{border:1px solid var(--line); border-radius:12px; overflow:hidden; background:#fff;}
+.faq-q{width:100%; text-align:left; background:none; border:none; padding:20px 22px; font-family:var(--font-body); font-weight:600; font-size:.98rem; color:var(--ink); cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:16px;}
+.faq-q svg{width:18px; height:18px; flex:none; transition:transform .25s ease; color:var(--cyan-dark);}
+.faq-item[open] .faq-q svg{transform:rotate(45deg);}
+.faq-a{padding:0 22px 20px; font-size:.92rem; color:var(--text-muted); margin:0;}
+
+/* ===== Final CTA ===== */
+.final-cta{
+  background:linear-gradient(135deg, var(--ink) 0%, var(--ink-2) 60%, var(--cyan-dark) 140%);
+  color:#fff; text-align:center; position:relative; overflow:hidden;
+}
+.final-cta h2{color:#fff; font-size:clamp(1.8rem,3.4vw,2.6rem); max-width:16ch; margin:0 auto .5em;}
+.final-cta p{color:rgba(255,255,255,.75); max-width:50ch; margin:0 auto 30px;}
+.final-cta-ctas{display:flex; justify-content:center; gap:14px; flex-wrap:wrap;}
+
+/* ===== Footer ===== */
+footer{background:var(--ink); color:rgba(255,255,255,.7); padding:64px 0 28px; font-size:.9rem;}
+.footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px; margin-bottom:48px;}
+.footer-grid h4{color:#fff; font-size:.85rem; text-transform:uppercase; letter-spacing:.06em; margin-bottom:16px;}
+.footer-grid ul{list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px;}
+.footer-grid a:hover{color:var(--cyan);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.12); padding-top:24px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-size:.82rem; color:rgba(255,255,255,.5);}
+.footer-bottom a{color:rgba(255,255,255,.5);}
+.footer-bottom a:hover{color:#fff;}
+
+/* ===== Floating buttons ===== */
+.floaters{position:fixed; right:20px; bottom:20px; display:flex; flex-direction:column; gap:12px; z-index:70;}
+.float-btn{
+  width:54px; height:54px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  box-shadow:0 10px 24px -8px rgba(0,0,0,.35); cursor:pointer; border:none; transition:transform .18s ease;
+}
+.float-btn:hover{transform:scale(1.08);}
+.float-btn svg{width:26px; height:26px; color:#fff;}
+.float-whatsapp{background:#25D366;}
+.float-cta{background:var(--cta);}
+
+/* ===== Responsive ===== */
+@media (max-width: 980px){
+  .hero-grid{grid-template-columns:1fr; gap:44px;}
+  .trust-grid, .services-grid, .portfolio-grid, .t-grid{grid-template-columns:repeat(2,1fr);}
+  .timeline{grid-template-columns:repeat(3,1fr); row-gap:36px;}
+  .timeline::before{display:none;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+}
+@media (max-width: 720px){
+  .navlinks, .nav-cta .btn-outline{display:none;}
+  .menu-btn{display:block;}
+  section{padding:64px 0;}
+  .trust-grid, .services-grid, .portfolio-grid, .t-grid{grid-template-columns:1fr;}
+  .timeline{grid-template-columns:1fr 1fr;}
+  .footer-grid{grid-template-columns:1fr;}
+  .hero{padding:70px 0 60px;}
+}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <nav class="nav">
+    <a href="#top" class="logo"><span class="dot"></span>WebZech</a>
+    <ul class="navlinks">
+      <li><a href="#leistungen">Leistungen</a></li>
+      <li><a href="#prozess">Prozess</a></li>
+      <li><a href="#referenzen">Referenzen</a></li>
+      <li><a href="#stimmen">Kundenstimmen</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="#kontakt" class="btn btn-outline btn-sm">Angebot anfordern</a>
+      <a href="#kontakt" class="btn btn-primary btn-sm">Kostenlose Beratung</a>
+    </div>
+    <button class="menu-btn" aria-label="Menü öffnen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Digitalagentur · Niederbayern</span>
+        <h1>Websites, die <em>gefunden</em> werden – und <em>verkaufen</em>.</h1>
+        <p class="lead">WebZech entwickelt moderne, schnelle Websites und betreibt lokale Suchmaschinenoptimierung für Unternehmen in Aidenbach, Passau, Deggendorf, Vilshofen und Landshut. Klar strukturiert. Technisch sauber. Auf Ergebnisse ausgelegt.</p>
+        <div class="hero-ctas">
+          <a href="#kontakt" class="btn btn-primary">Kostenloses Beratungsgespräch</a>
+          <a href="#kontakt" class="btn btn-ghost-light">Angebot anfordern</a>
+        </div>
+        <div class="hero-trustline">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Made in Niederbayern</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>DSGVO-konform</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Transparente Preise</span>
+        </div>
+      </div>
+
+      <div class="map-card">
+        <div class="label">Unser Servicegebiet</div>
+        <svg viewBox="0 0 420 340" width="100%" role="img" aria-label="Karte des Servicegebiets von WebZech in Niederbayern">
+          <line class="map-line" x1="230" y1="150" x2="130" y2="70"/>
+          <line class="map-line" x1="230" y1="150" x2="330" y2="60"/>
+          <line class="map-line" x1="230" y1="150" x2="345" y2="200"/>
+          <line class="map-line" x1="230" y1="150" x2="150" y2="260"/>
+          <line class="map-line" x1="230" y1="150" x2="90" y2="180"/>
+
+          <g class="node main">
+            <circle cx="230" cy="150" r="5" fill="var(--cyan)" class="pulse"/>
+            <circle cx="230" cy="150" r="7" fill="var(--cyan)"/>
+            <text x="242" y="147" class="map-label">Aidenbach (Basis)</text>
+          </g>
+          <g class="node">
+            <circle cx="130" cy="70" r="5" fill="var(--cyan)" class="pulse"/>
+            <circle cx="130" cy="70" r="6" fill="rgba(255,255,255,.85)"/>
+            <text x="90" y="55" class="map-label">Landshut</text>
+          </g>
+          <g class="node">
+            <circle cx="330" cy="60" r="5" fill="var(--cyan)" class="pulse"/>
+            <circle cx="330" cy="60" r="6" fill="rgba(255,255,255,.85)"/>
+            <text x="305" y="46" class="map-label">Deggendorf</text>
+          </g>
+          <g class="node">
+            <circle cx="345" cy="200" r="5" fill="var(--cyan)" class="pulse"/>
+            <circle cx="345" cy="200" r="6" fill="rgba(255,255,255,.85)"/>
+            <text x="300" y="222" class="map-label">Passau</text>
+          </g>
+          <g class="node">
+            <circle cx="90" cy="180" r="5" fill="var(--cyan)" class="pulse"/>
+            <circle cx="90" cy="180" r="6" fill="rgba(255,255,255,.85)"/>
+            <text x="15" y="200" class="map-label">Vilshofen</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <section class="trust">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Warum WebZech</span>
+        <h2>Ein Partner, kein Dienstleister von der Stange</h2>
+        <p>Unternehmen in Niederbayern wählen WebZech, weil wir Design, Technik und Auffindbarkeit als ein Projekt behandeln – nicht als drei getrennte Baustellen.</p>
+      </div>
+      <div class="trust-grid">
+        <div class="trust-card">
+          <div class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 9h16"/></svg></div>
+          <h3>Moderne Websites</h3>
+          <p>Zeitgemäßes Design, das Vertrauen schafft und zur Marke Ihres Unternehmens passt.</p>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M13 2L3 14h7l-1 8 11-14h-7l1-6z"/></svg></div>
+          <h3>Schnelle Umsetzung</h3>
+          <p>Klare Zeitpläne und feste Meilensteine – kein monatelanges Warten auf den Launch.</p>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+          <h3>SEO-optimiert</h3>
+          <p>Jede Website wird von Grund auf technisch sauber und suchmaschinenfreundlich gebaut.</p>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div>
+          <h3>Mobilfreundlich</h3>
+          <p>Über 60 % Ihrer Besucher kommen mobil – unsere Websites sind dafür gebaut, nicht nur angepasst.</p>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+          <h3>Transparenter Prozess</h3>
+          <p>Sie wissen jederzeit, in welcher Phase sich Ihr Projekt befindet und was als Nächstes kommt.</p>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 2l3 6 6 1-4.5 4 1 6-5.5-3-5.5 3 1-6L3 9l6-1z"/></svg></div>
+          <h3>Langfristige Betreuung</h3>
+          <p>Auch nach dem Launch bleiben wir Ansprechpartner für Wartung, Updates und Wachstum.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="leistungen">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Leistungen</span>
+        <h2>Alles aus einer Hand – von der Website bis zur Sichtbarkeit</h2>
+        <p>Jede Leistung ist einzeln buchbar oder als Gesamtpaket kombinierbar. Jede hat eine eigene, ausführliche Seite.</p>
+      </div>
+      <div class="services-grid">
+        <article class="service-card">
+          <span class="service-num">01</span>
+          <h3>Webentwicklung</h3>
+          <p>Individuell programmierte Websites, die exakt auf Ihr Geschäftsmodell und Ihre Zielgruppe zugeschnitten sind.</p>
+          <a href="#" class="service-link">Mehr erfahren <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+        <article class="service-card">
+          <span class="service-num">02</span>
+          <h3>WordPress-Websites</h3>
+          <p>Flexible, pflegeleichte Websites auf WordPress-Basis – ideal für Praxen, Kanzleien und Dienstleister.</p>
+          <a href="#" class="service-link">Mehr erfahren <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+        <article class="service-card">
+          <span class="service-num">03</span>
+          <h3>Shopify-Shops</h3>
+          <p>Onlineshops, die auf Conversion ausgelegt sind – von der Produktseite bis zum Checkout.</p>
+          <a href="#" class="service-link">Mehr erfahren <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+        <article class="service-card">
+          <span class="service-num">04</span>
+          <h3>Landingpages</h3>
+          <p>Fokussierte Seiten für Kampagnen und Angebote, die gezielt zu Anfragen führen.</p>
+          <a href="#" class="service-link">Mehr erfahren <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+        <article class="service-card">
+          <span class="service-num">05</span>
+          <h3>Local SEO</h3>
+          <p>Sichtbarkeit in Google Maps und den lokalen Suchergebnissen für Aidenbach und die Region.</p>
+          <a href="#" class="service-link">Mehr erfahren <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+        <article class="service-card">
+          <span class="service-num">06</span>
+          <h3>Technisches SEO</h3>
+          <p>Ladezeit, Struktur und Crawling-Optimierung – die Grundlage jeder nachhaltigen Sichtbarkeit.</p>
+          <a href="#" class="service-link">Mehr erfahren <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+        <article class="service-card">
+          <span class="service-num">07</span>
+          <h3>Website-Wartung</h3>
+          <p>Regelmäßige Updates, Backups und Sicherheitschecks, damit Ihre Website zuverlässig läuft.</p>
+          <a href="#" class="service-link">Mehr erfahren <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+        <article class="service-card">
+          <span class="service-num">08</span>
+          <h3>Website-Redesign</h3>
+          <p>Bestehende Websites werden modernisiert – technisch, gestalterisch und inhaltlich.</p>
+          <a href="#" class="service-link">Mehr erfahren <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+        <article class="service-card">
+          <span class="service-num">09</span>
+          <h3>SEO-Beratung</h3>
+          <p>Eine klare Analyse Ihrer aktuellen Sichtbarkeit und ein priorisierter Maßnahmenplan.</p>
+          <a href="#" class="service-link">Mehr erfahren <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process blueprint" id="prozess">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Ablauf</span>
+        <h2>Sechs Schritte, ein klares Ziel</h2>
+        <p>Vom ersten Gespräch bis zur laufenden Betreuung – Sie wissen jederzeit, was als Nächstes passiert.</p>
+      </div>
+      <div class="timeline">
+        <div class="step"><div class="num">1</div><h3>Analyse</h3><p>Wir prüfen Ihre aktuelle Website, Zielgruppe und Wettbewerber.</p></div>
+        <div class="step"><div class="num">2</div><h3>Strategie</h3><p>Wir legen Struktur, Inhalte und SEO-Ziele gemeinsam fest.</p></div>
+        <div class="step"><div class="num">3</div><h3>Design</h3><p>Ein individuelles Layout, abgestimmt auf Ihre Marke.</p></div>
+        <div class="step"><div class="num">4</div><h3>Entwicklung</h3><p>Technisch saubere Umsetzung mit Fokus auf Geschwindigkeit.</p></div>
+        <div class="step"><div class="num">5</div><h3>Launch</h3><p>Sorgfältige Tests, dann geht Ihre Website live.</p></div>
+        <div class="step"><div class="num">6</div><h3>Betreuung</h3><p>Laufende Pflege, Updates und Optimierung nach dem Launch.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="referenzen">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Referenzen</span>
+        <h2>Projekte aus der Region</h2>
+        <p>Eine Auswahl unserer Arbeiten für Unternehmen in Niederbayern.</p>
+      </div>
+      <div class="portfolio-grid">
+        <div class="pf-card">
+          <div class="pf-thumb"><span class="pf-tag">Zahnarztpraxis</span></div>
+          <div class="pf-body"><h3>Praxis-Website mit Online-Terminbuchung</h3><p>Passau · WordPress, Local SEO</p></div>
+        </div>
+        <div class="pf-card">
+          <div class="pf-thumb"><span class="pf-tag">Handwerksbetrieb</span></div>
+          <div class="pf-body"><h3>Neuauftritt für einen Bauunternehmer</h3><p>Deggendorf · Webentwicklung</p></div>
+        </div>
+        <div class="pf-card">
+          <div class="pf-thumb"><span class="pf-tag">Restaurant</span></div>
+          <div class="pf-body"><h3>Speisekarte, Reservierung &amp; Local SEO</h3><p>Vilshofen · Landingpage</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="stimmen">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Kundenstimmen</span>
+        <h2>Was unsere Kunden sagen</h2>
+      </div>
+      <div class="t-grid">
+        <div class="t-card">
+          <div class="t-stars">★★★★★</div>
+          <p class="t-quote">Seit dem Relaunch bekommen wir spürbar mehr Anfragen über Google. Die Zusammenarbeit war unkompliziert und schnell.</p>
+          <div class="t-person"><div class="t-avatar"></div><div><div class="t-name">M. Huber</div><div class="t-role">Inhaber, Handwerksbetrieb Deggendorf</div></div></div>
+        </div>
+        <div class="t-card">
+          <div class="t-stars">★★★★★</div>
+          <p class="t-quote">Endlich eine Website, die zu unserer Praxis passt und auch mobil einwandfrei funktioniert.</p>
+          <div class="t-person"><div class="t-avatar"></div><div><div class="t-name">Dr. S. Lechner</div><div class="t-role">Zahnarztpraxis, Passau</div></div></div>
+        </div>
+        <div class="t-card">
+          <div class="t-stars">★★★★★</div>
+          <p class="t-quote">Klar strukturierter Prozess, transparente Kommunikation und ein Ergebnis, das unsere Erwartungen übertroffen hat.</p>
+          <div class="t-person"><div class="t-avatar"></div><div><div class="t-name">A. Wagner</div><div class="t-role">Geschäftsführerin, Vilshofen</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Häufige Fragen</span>
+        <h2>Fragen &amp; Antworten</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-q">Wie lange dauert die Erstellung einer neuen Website? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></summary>
+          <p class="faq-a">Je nach Umfang zwischen zwei und sechs Wochen, von der ersten Analyse bis zum Launch.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Übernimmt WebZech auch die Suchmaschinenoptimierung? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></summary>
+          <p class="faq-a">Ja, jede Website wird technisch für SEO vorbereitet. Optional betreuen wir auch laufendes Local SEO für Ihr Unternehmen.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Arbeitet WebZech auch mit Kunden außerhalb von Niederbayern? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></summary>
+          <p class="faq-a">Unser Schwerpunkt liegt in Niederbayern, wir betreuen aber zunehmend auch Kunden in München, Regensburg, Augsburg und deutschlandweit.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Was kostet eine professionelle Website? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></summary>
+          <p class="faq-a">Das hängt vom Umfang und den gewünschten Funktionen ab. Im kostenlosen Beratungsgespräch erstellen wir ein transparentes, unverbindliches Angebot.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta blueprint" id="kontakt">
+    <div class="wrap">
+      <h2>Bereit für eine Website, die für Sie arbeitet?</h2>
+      <p>Vereinbaren Sie ein kostenloses, unverbindliches Beratungsgespräch – wir zeigen Ihnen konkret, wo Ihr größtes Potenzial liegt.</p>
+      <div class="final-cta-ctas">
+        <a href="#" class="btn btn-primary">Kostenloses Beratungsgespräch</a>
+        <a href="#" class="btn btn-ghost-light">Angebot anfordern</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a href="#top" class="logo" style="color:#fff; margin-bottom:14px; display:inline-flex;"><span class="dot"></span>WebZech</a>
+        <p style="color:rgba(255,255,255,.6); font-size:.9rem; max-width:34ch;">Webentwicklung &amp; Local SEO Agentur mit Sitz in Aidenbach, Niederbayern.</p>
+      </div>
+      <div>
+        <h4>Leistungen</h4>
+        <ul>
+          <li><a href="#">Webentwicklung</a></li>
+          <li><a href="#">WordPress-Websites</a></li>
+          <li><a href="#">Shopify-Shops</a></li>
+          <li><a href="#">Local SEO</a></li>
+          <li><a href="#">Technisches SEO</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Standorte</h4>
+        <ul>
+          <li><a href="#">Webentwicklung Aidenbach</a></li>
+          <li><a href="#">Webdesign Vilshofen</a></li>
+          <li><a href="#">Webentwicklung Passau</a></li>
+          <li><a href="#">Webdesign Deggendorf</a></li>
+          <li><a href="#">Webdesign Landshut</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Unternehmen</h4>
+        <ul>
+          <li><a href="#">Über Uns</a></li>
+          <li><a href="#">Referenzen</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 WebZech · Aidenbach, Niederbayern</span>
+      <div style="display:flex; gap:18px;">
+        <a href="#">Impressum</a>
+        <a href="#">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="floaters">
+  <a class="float-btn float-whatsapp" href="#" aria-label="Über WhatsApp kontaktieren"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.5 15.2L2 22l4.9-1.5A10 10 0 1012 2zm5.4 14.2c-.2.6-1.3 1.2-1.8 1.3-.5.1-1 .1-3.2-.7-2.7-1.1-4.5-3.8-4.6-4-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 1-2.2.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5.2.6.7 1.9.8 2 .1.2.1.4 0 .6-.1.2-.2.4-.4.6-.2.2-.4.4-.2.8.2.4.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.7.4.2.6.1.8-.1.2-.2.9-1 1.1-1.4.2-.4.4-.3.7-.2.3.1 1.9.9 2.2 1.1.3.2.5.2.6.3.1.2.1.9-.1 1.4z"/></svg></a>
+  <a class="float-btn float-cta" href="#kontakt" aria-label="Kostenlose Beratung anfordern"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg></a>
+</div>
+
+<script>
+  // Mobile menu toggle
+  const menuBtn = document.querySelector('.menu-btn');
+  const navlinks = document.querySelector('.navlinks');
+  menuBtn.addEventListener('click', () => {
+    const isOpen = navlinks.style.display === 'flex';
+    navlinks.style.display = isOpen ? 'none' : 'flex';
+    navlinks.style.cssText += isOpen ? '' : 'position:absolute; top:100%; left:0; right:0; background:#fff; flex-direction:column; padding:20px 24px; border-bottom:1px solid var(--line); gap:16px;';
+  });
+
+  // Close mobile menu on link click
+  document.querySelectorAll('.navlinks a').forEach(a => a.addEventListener('click', () => {
+    if (window.innerWidth <= 720) navlinks.style.display = 'none';
+  }));
+
+  // Only one FAQ item open at a time
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.addEventListener('toggle', () => {
+      if (item.open) {
+        document.querySelectorAll('.faq-item').forEach(other => {
+          if (other !== item) other.open = false;
+        });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
